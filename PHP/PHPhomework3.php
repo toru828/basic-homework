@@ -4,7 +4,7 @@ function primeNumberFinder($n)
 {
     $x = 0;
     $y = 1;
-    for ($i = 2; $i < $n ; $i++) {
+    for ($i = 2; $i < $n; $i++) {
         $x = $n % $i;
         $y *= $x;
     }
