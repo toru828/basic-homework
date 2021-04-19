@@ -10,9 +10,9 @@ function primeNumberFinder($n)
     }
     if($y == 0) {
         echo "The number is not prime number.";
-        } else {
+    } else {
         echo "The number is prime number.";
-        }
+    }
 }
 primeNumberFinder();
 ?>
