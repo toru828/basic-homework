@@ -7,7 +7,7 @@ function primeNumberFinder($n)
   for ($i = 2; $i < $n ; $i++) {
    $x = $n % $i;
    $y *= $x;
- }
+  }
   if($y == 0) {
    echo "The number is not prime number.";
    } else {
