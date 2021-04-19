@@ -8,7 +8,7 @@ function findPrimeNumberBetween($n)
             $x = $m % $i;
             $y *= $x;
         }
-        if($y != 0) {
+        if($y !== 0) {
         echo "$m"."<br>";
         }
     }
