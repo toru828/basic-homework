@@ -9,7 +9,7 @@ function findPrimeNumberBetween($n)
             $y *= $x;
         }
         if($y !== 0) {
-        echo "$m"."<br>";
+            echo "$m"."<br>";
         }
     }
 }
