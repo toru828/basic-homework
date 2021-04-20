@@ -1,13 +1,13 @@
 <?php
 
 abstract class Emailer {
-// Declare properties
+    // Declare properties
     protected $sender;
     protected $recipients;
     protected $subject;
     protected $body;
 
-// Use Constructor to initialize sender and recipients
+    // Use Constructor to initialize sender and recipients
     function __construct($sender)
     {
         $this->sender = $sender;
@@ -38,12 +38,12 @@ abstract class Emailer {
 class SendGrid extends Emailer {
     public function sendEmail()
     {
-    foreach ($this->recipients as $recipient) {
-        $result = mail($recipient, $this->subject, $this->body, "From: {$this->sender}\r\n");
-        echo "SendGrid successfully sent to {$recipient}\n";
-        echo "Sender: $this->sender\n";
-        echo "Subject: $this->subject\n";
-        echo "Content: $this->body\n";
+        foreach ($this->recipients as $recipient) {
+            $result = mail($recipient, $this->subject, $this->body, "From: {$this->sender}\r\n");
+            echo "SendGrid successfully sent to {$recipient}\n";
+            echo "Sender: $this->sender\n";
+            echo "Subject: $this->subject\n";
+            echo "Content: $this->body\n";
         }
     }
 }
