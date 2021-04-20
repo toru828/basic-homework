@@ -13,13 +13,13 @@ class Shape {
 
 class Triangle extends Shape {
     public function area() {
-        echo 'The area of triangle is '.$this->width*$this->height/2;
+        echo 'The area of triangle is ' . $this->width*$this->height/2;
     }
 }
 
 class Rectangle extends Shape {
     public function area() {
-        echo 'The area of rectangle is '.$this->width*$this->height;
+        echo 'The area of rectangle is ' . $this->width*$this->height;
     }
 }
 $triangle = new Triangle(4,8);
