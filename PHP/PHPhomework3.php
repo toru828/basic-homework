@@ -4,7 +4,6 @@ function primeNumberFinder($n)
 {
     $y = 1;
     for ($i = 2; $i < $n; $i++) {
-
         if ($n % $i === 0) {
             $y = 0;
             break;
