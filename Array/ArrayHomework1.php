@@ -7,9 +7,10 @@ $sum = 0;
 $min = $calculate[0];
 $max = $calculate[0];
 
-for ($i = 0; $i < 5; $i++) {
+$count = count($calculate);
+
+for ($i = 0; $i < $count; $i++) {
     $sum += $calculate[$i];
-    $avg = $sum / 5;
     if ($min > $calculate[$i]) {
         $min = $calculate[$i];
     }
@@ -17,6 +18,7 @@ for ($i = 0; $i < 5; $i++) {
         $max = $calculate[$i];
     }
 }
+$avg = $sum / 5;
 
 echo "average is " . $avg . "<br>";
 echo "sum is " . $sum . "<br>";
