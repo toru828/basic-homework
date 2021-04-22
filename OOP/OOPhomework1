@@ -1,0 +1,30 @@
+<?php
+  
+class Shape {
+    protected $width;
+    protected $height;
+
+    public function __construct($width, $height) {
+        $this->width = $width;
+        $this->height = $height;
+    }
+}
+
+class Triangle extends Shape {
+    public function area() {
+        echo 'The area of triangle is ' . $this->width * $this->height / 2;
+    }
+}
+
+class Rectangle extends Shape {
+    public function area() {
+        echo 'The area of rectangle is ' . $this->width * $this->height;
+    }
+}
+$triangle = new Triangle(4,8);
+$rectangle = new Rectangle(5,6);
+$triangle->area();
+echo "<br>";
+$rectangle->area();
+
+?>
