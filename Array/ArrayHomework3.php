@@ -9,8 +9,11 @@ $sum = 0;
 $min = $input[0][0];
 $max = $input[0][0];
 
-for ($i = 0; $i < 3; $i++) {
-    for ($j = 0; $j < 5; $j++) {
+$counti = count($input);
+$countj = count($input[0]);
+
+for ($i = 0; $i < $counti; $i++) {
+    for ($j = 0; $j < $countj; $j++) {
         $sum += $input[$i][$j];
         $avg = $sum / 15;
         if ($min > $input[$i][$j]) {
