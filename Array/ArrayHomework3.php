@@ -12,7 +12,6 @@ $max = $input[0][0];
 for ($i = 0; $i < 3; $i++) {
     for ($j = 0; $j < 5; $j++) {
         $sum += $input[$i][$j];
-        $avg = $sum / 15;
         if ($min > $input[$i][$j]) {
             $min = $input[$i][$j];
         }
@@ -21,6 +20,7 @@ for ($i = 0; $i < 3; $i++) {
         }
     }
 }
+$avg = $sum / 15;
 
 echo "average is " . round($avg) . "<br>";
 echo "sum is " . round($sum) . "<br>";
