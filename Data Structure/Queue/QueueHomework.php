@@ -3,25 +3,21 @@
 class Queue {
     private $elements;
 
-    public function __construct()
-    {
+    public function __construct(){
         $this->elements = array();
     }
 
-    public function enqueue($ele)
-    {
+    public function enqueue($ele){
         array_unshift($this->elements, $ele); 
     }
 
-    public function dequeue()
-    {
+    public function dequeue(){
         if (!$this->isEmpty()) {
             unset($this->elements[sizeof($this->elements) - 1]);
         }
     }
 
-    public function front()
-    {
+    public function front(){
         if (!$this->isEmpty()) {
             return $this->elements[sizeof($this->elements) - 1];
         }
@@ -29,8 +25,7 @@ class Queue {
         return null;
     }
 
-    public function isEmpty()
-    {
+    public function isEmpty(){
         return empty($this->elements);
     }
 }
