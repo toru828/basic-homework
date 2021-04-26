@@ -22,7 +22,7 @@ class Queue {
 
     public function front()
     {
-            if (!$this->isEmpty()) {
+        if (!$this->isEmpty()) {
             return $this->elements[sizeof($this->elements) - 1];
         }
 
