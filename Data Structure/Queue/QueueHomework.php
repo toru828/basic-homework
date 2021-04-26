@@ -3,11 +3,6 @@
 class Queue {
     private $elements;
 
-    public function getElements()
-    {
-        $this->elements;
-    }
-
     public function __construct()
     {
         $this->elements = array();
