@@ -1,30 +1,6 @@
 <?php
 
-class Set {
-    private $elements;
-
-    public function __construct()
-    {
-        $this->elements = array();
-    }
-
-    public function add($ele)
-    {
-        if (!$this->isExist($ele)) {
-            $this->elements[] = $ele;
-        }
-    }
-
-    public function get()
-    {
-        return $this->elements;
-    }
-
-    public function isExist($ele)
-    {
-        return in_array($ele, $this->elements);
-    }
-}
+require 'SetHomework1.php';
 
 $set = new Set();
 
