@@ -36,7 +36,7 @@ class Stack {
 
     public function size()
     {
-    return sizeof($this->elements);
+        return sizeof($this->elements);
     }
 }
 
