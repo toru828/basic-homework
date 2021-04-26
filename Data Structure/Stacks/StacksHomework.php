@@ -25,7 +25,7 @@ class Stack {
         if (!$this->isEmpty()) {
             return $this->elements[sizeof($this->elements) - 1];
         } else {
-        return null;
+            return null;
         }
     }
 
