@@ -110,9 +110,7 @@ class LinkedList {
     public function visit()
     {
         $currNode = $this->head; // start from head node
-
         echo "Linked List: ";
-
         while ($currNode != null) {
             echo $currNode->getData() . " ";
             $currNode = $currNode->getNext();
