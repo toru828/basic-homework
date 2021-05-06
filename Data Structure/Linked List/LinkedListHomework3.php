@@ -12,7 +12,7 @@ class LinkedList {
     public function insert($data)
     {
         $newNode = new Node($data); // create a Node
-        if ($this->head === null) {
+        if (is_null($this->head)) {
             // if the head is null, that mean linked list is empty, so the first node is head
             $this->head = $newNode;
         } else {
@@ -28,9 +28,9 @@ class LinkedList {
     }
 
     public function merge($list1,$list2) {
-        if ($list1->head === null) {
+        if (is_null($list1->head)) {
             return $list2;
-        } elseif ($list2->head === null) {
+        } elseif (is_null($list2->head)) {
             return $list1;
         } elseif ($list1->head->getData() < $list2->head->getData()) {
             return $this->mergeUtil($list1,$list2);
@@ -40,7 +40,7 @@ class LinkedList {
     }
 
     public function mergeUtil($list1,$list2) {
-        if($list1->head->getNext() === null) {
+        if(is_null($list1->head->getNext())) {
             $list1->head->setNext($list2);
             return $list1;
         }
