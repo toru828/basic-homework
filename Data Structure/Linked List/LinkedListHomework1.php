@@ -12,7 +12,7 @@ class Node {
     public function __construct($data = 0, $next = null)  // default value of $data is 0, $next is null
     {
         $this->data = $data; // initial $data
-        $this->next = $next;  // initial $next
+        $this->next = $next; // initial $next
     }
 
     /**
