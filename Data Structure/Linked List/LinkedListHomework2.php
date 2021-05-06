@@ -5,7 +5,7 @@ class Node {
     private $data;
     /** @var Node */ 
     private $next; 
-
+    /** @var Node */ 
     private $prev;
     /**
     * Constructor Node class
@@ -74,14 +74,14 @@ class LinkedList {
     public function insert($data)
     {
         $newNode = new Node($data); // create a Node
-        if ($this->head == null) {
+        if ($this->head === null) {
             // if the head is null, that mean linked list is empty, so the first node is head
             $this->head = $newNode;
         } else {
             // if linked list is not null, new node will be add to end of list
             // find the last node
             $last = $this->head; 
-            while ($last->getNext() != null) { 
+            while ($last->getNext() !== null) { 
                 $last = $last->getNext();
             }
             // insert new node to at last node
@@ -92,16 +92,17 @@ class LinkedList {
 
     public function deleteAll($data)
     {
-        if ($this->head == null) { // linked list is empty
+        if ($this->head === null) { // linked list is empty
             echo "List is empty.";
+            return;
         }
 
 
         $current = $this->head;
 
-        while ($current->getNext() != null)
+        while ($current->getNext() !== null)
         {
-            if ($current->getNext()->getData() == $data)
+            if ($current->getNext()->getData() === $data)
             {
                 $current->setNext($current->getNext()->getNext());
             }
@@ -118,7 +119,7 @@ class LinkedList {
     {
         $currNode = $this->head; // start from head node
         echo "Linked List: ";
-        while ($currNode != null) {
+        while ($currNode !== null) {
             echo $currNode->getData() . " ";
             $currNode = $currNode->getNext();
         }
@@ -128,12 +129,12 @@ class LinkedList {
     {
         $currNode = $this->head; // start from head node
         echo "Linked List: ";
-        while ($currNode->getNext() != null) {
+        while ($currNode->getNext() !== null) {
             $currNode = $currNode->getNext();
         }
 
         
-        while ($currNode != null) {
+        while ($currNode !== null) {
             echo $currNode->getData() . " ";
             $currNode = $currNode->getPrev();
         }
