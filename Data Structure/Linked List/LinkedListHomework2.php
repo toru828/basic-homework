@@ -92,7 +92,7 @@ class LinkedList {
 
     public function deleteAll($data)
     {
-        if ($this->head === null) { // linked list is empty
+        if (is_null($this->head)) { // linked list is empty
             echo "List is empty.";
             return;
         }
