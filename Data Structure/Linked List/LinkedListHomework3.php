@@ -12,14 +12,14 @@ class LinkedList {
     public function insert($data)
     {
         $newNode = new Node($data); // create a Node
-        if ($this->head == null) {
+        if ($this->head === null) {
             // if the head is null, that mean linked list is empty, so the first node is head
             $this->head = $newNode;
         } else {
             // if linked list is not null, new node will be add to end of list
             // find the last node
             $last = $this->head; 
-            while ($last->getNext() != null) {
+            while ($last->getNext() !== null) {
                 $last = $last->getNext();
             }
             // insert new node to at last node
@@ -28,9 +28,9 @@ class LinkedList {
     }
 
     public function merge($list1,$list2) {
-        if ($list1->head == null) {
+        if ($list1->head === null) {
             return $list2;
-        } elseif ($list2->head == null) {
+        } elseif ($list2->head === null) {
             return $list1;
         } elseif ($list1->head->getData() < $list2->head->getData()) {
             return $this->mergeUtil($list1,$list2);
@@ -40,17 +40,17 @@ class LinkedList {
     }
 
     public function mergeUtil($list1,$list2) {
-        if($list1->head->getNext() == null) {
+        if($list1->head->getNext() === null) {
             $list1->head->setNext($list2);
             return $list1;
         }
 
-    $curr1 = $list1->head;
-    $next1 = $list1->head->getNext();
-    $curr2 = $list2->head;
-    $next2 = $list2->head->getNext();
+        $curr1 = $list1->head;
+        $next1 = $list1->head->getNext();
+        $curr2 = $list2->head;
+        $next2 = $list2->head->getNext();
 
-        while ($next1 != null && $curr2 != null) {
+        while ($next1 != null && $curr2 !== null) {
             if (($curr2->getData()) >= ($curr1->getData()) && ($curr2->getData()) <= ($next1->getData())) {
                 $next2 = $curr2->getNext();
                 $curr1->setNext($curr2);
@@ -59,7 +59,7 @@ class LinkedList {
                 $curr1 = $curr2;
                 $curr2 = $next2;
             } else {
-                if ($next1->getNext() != null) {
+                if ($next1->getNext() !== null) {
                     $next1 = $next1->getNext();
                     $curr1 = $curr1->getNext();
                 } else {
@@ -79,7 +79,7 @@ class LinkedList {
 
         echo "Linked List: ";
 
-        while ($currNode != null) {
+        while ($currNode !== null) {
             echo $currNode->getData() . " ";
             $currNode = $currNode->getNext();
         }
