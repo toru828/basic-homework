@@ -74,7 +74,7 @@ class LinkedList {
     public function insert($data)
     {
         $newNode = new Node($data); // create a Node
-        if ($this->head === null) {
+        if (is_null($this->head)) {
             // if the head is null, that mean linked list is empty, so the first node is head
             $this->head = $newNode;
         } else {
