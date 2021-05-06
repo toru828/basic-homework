@@ -98,6 +98,6 @@ $list2->insert(5); // (2) -> (4) -> (5)
 
 $list3 = $list1->merge($list1, $list2);
 
-print_r($list3);
+$list3->visit();
 
 ?>
