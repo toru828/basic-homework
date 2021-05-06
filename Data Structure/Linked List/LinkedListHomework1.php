@@ -63,14 +63,14 @@ class LinkedList {
     public function insert($data)
     {
         $newNode = new Node($data); // create a Node
-        if ($this->head == null) {
+        if (is_null($this->head)) {
             // if the head is null, that mean linked list is empty, so the first node is head
             $this->head = $newNode;
         } else {
             // if linked list is not null, new node will be add to end of list
             // find the last node
             $last = $this->head;
-            while ($last->getNext() != null) {
+            while ($last->getNext() !== null) {
                 $last = $last->getNext();
             }
             // insert new node to at last node
@@ -80,20 +80,21 @@ class LinkedList {
 
     public function deleteAll($data)
     {
-        if ($this->head == null) { // linked list is empty
+        if ($this->head === null) { // linked list is empty
             echo "List is empty.";
+            return;
         }
 
 
-        while ($this->head->getData() == $data) {
+        while ($this->head->getData() === $data) {
             $this->head = $this->head->getNext();
         }
 
         $current = $this->head;
 
-        while ($current->getNext() != null)
+        while ($current->getNext() !== null)
         {
-            if ($current->getNext()->getData() == $data)
+            if ($current->getNext()->getData() === $data)
             {
                 $current->setNext($current->getNext()->getNext());
             }
