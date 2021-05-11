@@ -81,10 +81,12 @@ class Node {
 class BT {
     /** @var Node */ 
     private $root;
+    private $arr;
 
-    public function __construct($root = null)
+    public function __construct($root = null, $arr = array())
     {
         $this->root = $root;
+        $this->arr = $arr;
     }
 
     /**
@@ -105,35 +107,65 @@ class BT {
         $this->root = $root;
     }
 
+    function addNewData($newNumber)
+    {
+        $i = 0;
+        if ($this->root === null) {
+            $this->root = new Node($newNumber);
+            array_push($this->arr, $this->root);
+            return;
+        }
+        for ($j = 0; $j < count($this->arr); $j++) {
+            if ($this->arr[$j]->getData() === null) {
+                $this->arr[$j]->setData($newNumber);
+                return;
+            }
+        }
+        while ($i < count($this->arr)) {
+            $current = $this->arr[$i];
+            if ($current->getLeft() === null) {
+                $current->setLeft(new Node($newNumber));
+                array_push($this->arr, $current->getLeft());
+                return;
+            } elseif ($current->getRight() === null) {
+                $current->setRight(new Node($newNumber));
+                array_push($this->arr, $current->getRight());
+                return;
+            } else {
+                $i++;
+            }
+        }
 }
 
-$parent2 = new Node(7, null, null);
-$parent3 = new Node(15, null, null);
-$parent4 = new Node(8, null, null);
 
-$parent0 = new Node(11, $parent2, null);
-$parent1 = new Node(9, $parent3, $parent4);
+    function showTheTree() {
+        print_r($this->root);
+    }
 
-$root = new Node(10, $parent0, $parent1);
-
-$bt = new BT($root);
-
-$parents = array($parent0, $parent1, $parent2, $parent3, $parent4);
-
-function addNewData($newNumber,$parents) {
-    $newParent = new node($newNumber, null, null);
-    array_push($parents, $newNumber);
-    foreach ($parents as $parent) {
-        if ($parent->getLeft() === null) {
-            return $parent->setLeft($newParent);
-        } elseif ($parent->getRight() === null) {
-            return $parent->setRight($newParent);
+    function deleteLeaf($deleteNumber)
+    {
+        $i = 0;
+        while ($this->arr[$i]->getData() !== $deleteNumber) {
+            $i++;
         }
+            $this->arr[$i]->setData(null);
     }
 }
 
-addNewData(12,$parents);
+$bt = new BT();
 
-print_r($root);
+$bt->addNewData(10);
+$bt->addNewData(11);
+$bt->addNewData(9);
+$bt->addNewData(7);
+$bt->addNewData(12);
+$bt->addNewData(15);
+$bt->addNewData(8);
+
+$bt->deleteLeaf(12);
+
+$bt->addNewData(12);
+
+$bt->showTheTree();
 
 ?>
