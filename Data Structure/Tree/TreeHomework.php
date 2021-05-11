@@ -135,7 +135,7 @@ class BT {
                 $i++;
             }
         }
-}
+    }
 
 
     function showTheTree() {
