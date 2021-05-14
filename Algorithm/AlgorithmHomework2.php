@@ -1,59 +1,85 @@
 <?php
-// Re-use quicksort source code
-function partition(&$array, $left, $right) {
-    $pivot = $array[$right];
-    $i = $left -1;
-    for ($j = $left; $j < $right; $j++) {
-          if(($array[$j] < $pivot)){
-            $i++;
-            $temp = $array[$i];
-            $array[$i] = $array[$j];
-            $array[$j] = $temp;
-          }
-    }
-    $temp = $array[$i + 1];
-    $array[$i + 1] = $array[$right];
-    $array[$right] = $temp;
-    return ($i + 1);
+
+function mergesort($numlist)
+{
+    if(count($numlist) == 1 ) return $numlist;
+ 
+    $mid = count($numlist) / 2;
+    $left = array_slice($numlist, 0, $mid);
+    $right = array_slice($numlist, $mid);
+ 
+    $left = mergesort($left);
+    $right = mergesort($right);
+     
+    return merge($left, $right);
 }
 
-function quicksort(&$array, $left, $right) {
-    if($left < $right) {
-        $pivotIndex = partition($array, $left, $right);
-        quicksort($array,$left,$pivotIndex -1 );
-        quicksort($array,$pivotIndex, $right);
-    }
-}
-
-$arr1 = [11, 7, 1];
-$arr2 = [4, 6, 2, 8];
-
-$k = 8;
-
-quicksort($arr1, 0, count($arr1) - 1);
-quicksort($arr2, 0, count($arr2) - 1);
-
-function findSmallestPairs($array1, $array2, $k) {
-    if ($k > count($array1) * count($array2)) {
-        echo "They don't have more than ".$k."pairs".".";
-        return;
-    }
-    $x = 0;
-    for ($l = 2; $l<= (end($array1) + end($array2)); $l++) {
-        for ($j = 0; $j < count($array2); $j++) {
-            for ($i = 0; $i < count($array1); $i++) {
-                if ($l === $array1[$i] + $array2[$j]) {
-                    echo "[".$array1[$i].", ".$array2[$j]."] ";
-                    $x++;
-                    if ($x === $k) {
-                        return;
-                    }
-                }
-            }
+// merge 2 sorted arrays
+function merge($left, $right)
+{
+    $result=array();
+    $leftIndex=0;
+    $rightIndex=0;
+ 
+    while($leftIndex<count($left) && $rightIndex<count($right))
+    {
+        if($left[$leftIndex]>$right[$rightIndex])
+        {
+ 
+            $result[]=$right[$rightIndex];
+            $rightIndex++;
+        }
+        else
+        {
+            $result[]=$left[$leftIndex];
+            $leftIndex++;
         }
     }
+    while($leftIndex<count($left))
+    {
+        $result[]=$left[$leftIndex];
+        $leftIndex++;
+    }
+    while($rightIndex<count($right))
+    {
+        $result[]=$right[$rightIndex];
+        $rightIndex++;
+    }
+    return $result;
 }
 
-findSmallestPairs($arr1, $arr2, $k);
+
+function printArray(&$arr, $n) 
+{ 
+    for ($i = 0; $i < $n; $i++) 
+        echo $arr[$i]." "; 
+    echo "\n"; 
+} 
+
+
+function findSmallestPairs($array1, $array2, $k) {
+    $x = 0;
+    $y = 0;
+    $array3 = array();
+    $array4 = array();
+    while($y !== count($array2)) {
+        array_push($array3, $array1[$x] + $array2[$y]);
+        $x++;
+        if ($x === count($array1)) {
+            $x = 0;
+            $y++;
+        }
+    }
+
+    $arr = mergesort($array3);
+    for($z = 0; $z < $k; $z++) {
+        echo $arr[$z]."<br>";
+    }
+}
+
+$arr1 = array(11, 7, 1);
+$arr2 = array(4, 6, 2, 8);
+
+findSmallestPairs($arr1, $arr2, 8);
 
 ?>
