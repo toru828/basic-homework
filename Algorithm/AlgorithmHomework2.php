@@ -1,5 +1,19 @@
 <?php
 
+class Pair {
+    public $sum = null;
+    public $indexInArray1 = null;
+    public $indexInArray2 = null;
+
+    public function __construct ($indexInArray1, $indexInArray2, $sum) {
+        $this->indexInArray1 = $indexInArray1;
+        $this->indexInArray2 = $indexInArray2;
+        $this->sum = $sum;
+    }
+}
+
+
+
 function mergesort($numlist)
 {
     if(count($numlist) == 1 ) return $numlist;
@@ -23,9 +37,8 @@ function merge($left, $right)
  
     while($leftIndex<count($left) && $rightIndex<count($right))
     {
-        if($left[$leftIndex]>$right[$rightIndex])
+        if($left[$leftIndex]->sum > $right[$rightIndex]->sum)
         {
- 
             $result[]=$right[$rightIndex];
             $rightIndex++;
         }
@@ -61,9 +74,8 @@ function findSmallestPairs($array1, $array2, $k) {
     $x = 0;
     $y = 0;
     $array3 = array();
-    $array4 = array();
     while($y !== count($array2)) {
-        array_push($array3, $array1[$x] + $array2[$y]);
+        array_push($array3, new Pair($array1[$x], $array2[$y], $array1[$x] + $array2[$y]));
         $x++;
         if ($x === count($array1)) {
             $x = 0;
@@ -73,13 +85,14 @@ function findSmallestPairs($array1, $array2, $k) {
 
     $arr = mergesort($array3);
     for($z = 0; $z < $k; $z++) {
-        echo $arr[$z]."<br>";
+        echo "(".$arr[$z]->indexInArray1.", ".$arr[$z]->indexInArray2.")"."<br>";
     }
 }
 
-$arr1 = array(11, 7, 1);
+$arr1 = array(11, 7, 1, 5, 11);
 $arr2 = array(4, 6, 2, 8);
 
+// The number "8" means, pick out 8 smallest pairs.
 findSmallestPairs($arr1, $arr2, 8);
 
 ?>
