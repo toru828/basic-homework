@@ -6,4 +6,4 @@ WHERE `agents`.`AGENT_CODE` = (
     GROUP BY `customer`.`AGENT_CODE`
     ORDER BY SUM(`customer`.`PAYMENT_AMT`) ASC
     LIMIT 1
-)
+);
