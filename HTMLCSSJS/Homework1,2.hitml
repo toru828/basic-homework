@@ -1,0 +1,93 @@
+<html lang="en">
+  <head>
+    <link rel="stylesheet", href="homework2.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <script src="homework2.js"></script>
+  </head>
+  <body>
+    <header>
+        <div id="logo">The logo</div>
+        <div id="slogan">The header slogan</div>
+        <div id="form">
+            <ul>
+                <li>Hi<span> Guest</span></li>
+                <li><a href="javascript:void(0)" id="form1" onclick="showLoginForm()">Login</a></li>
+            </ul>
+            <form id="login">
+                <input type="text" id="login1" name="userName" placeholder="User name">
+                <input type="password" id="login2" name="password" placeholder="Password">
+                <i class="material-icons" id="passwordIcon" onclick="hidePassword()">remove_red_eye</i>
+                <label id="login0"><input type="checkbox" id="login3" name="rememberUserName">Remember user name</label>
+                <button type="submit" id="login4" name="login">Login</button>
+            </form>
+            <form method="GET" id="search">
+                <input type="text" name="keyword" />
+                <i class="material-icons">search</i>
+            </form>
+        </div>
+    </header>
+    <nav>
+        <ul>
+            <li>Menu 1</li>
+            <li>Menu 2</li>
+            <li>Menu 3</li>
+            <li>Menu 4</li>
+        </ul>
+    </nav>
+    <div id="main">
+        <div id="main-content">
+            <h3>Users</h3>
+            <table>
+                <tr>
+                    <th>ID</th>
+                    <th>Fullname</th>
+                    <th>Username</th>
+                    <th>Email</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>Doloremque Laudantium</td>
+                    <td>doloremque</td>
+                    <td>doloremque@example.com</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Nemo enim</td>
+                    <td>nemo</td>
+                    <td>nemo@example.com</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Adipisci Velit</td>
+                    <td>adipisci</td>
+                    <td>adipisci velit@example.com</td>
+                </tr>
+            </table>
+            
+        </div>
+        <div id="sidebar">
+            <h3> Sidebar </h3>
+            <ul>
+                <li>Feature 1</li>
+                <li>Feature 2</li>
+                <li>Feature 3</li>
+                <li>Feature 4</li>
+                <li>Feature 5</li>
+                <li>Feature 6</li>
+            </ul>
+        </div>
+    </div>
+    <footer>
+        <ol>
+            <li>Extra info 1</li>
+            <li>Extra info 1</li>
+        </ol>
+        <h3> The footer</h3>
+    </footer>
+    <div id="scroll">
+        <a href="javascript:void(0);" onclick="scrollToTop()">
+            <i class="material-icons">arrow_drop_up</i>
+        </a>
+    </div>
+  </body>
+</html>
