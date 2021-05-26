@@ -1,8 +1,8 @@
 <html lang="en">
   <head>
-    <link rel="stylesheet" href="homework.css" />
+    <link rel="stylesheet" href="homework2.css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <script src="homework.js"></script>
+    <script src="homework2.js"></script>
   </head>
   <body>
     <header>
@@ -11,14 +11,14 @@
         <div id="form">
             <ul>
                 <li>Hi<span> Guest</span></li>
-                <li><a href="javascript:void(0)" id="form1" class="hide" onclick="showLoginForm()">Login</a></li>
+                <li><a href="javascript:void(0)" id="form1" onclick="showLoginForm()">Login</a></li>
             </ul>
-            <form id="login" class="hide">
-                <input type="text" class="hide" name="userName" placeholder="User name">
-                <input type="password" id="login1" class="hide" name="password" placeholder="Password">
+            <form id="login">
+                <input type="text" name="userName" placeholder="User name">
+                <input type="password" id="login1" name="password" placeholder="Password">
                 <i class="material-icons" id="passwordIcon" onclick="hidePassword()">remove_red_eye</i>
-                <label class="hide"><input type="checkbox" class="hide" name="rememberUserName">Remember user name</label>
-                <button type="submit" class="hide" name="login">Login</button>
+                <label><input type="checkbox" name="rememberUserName">Remember user name</label>
+                <button type="submit" name="login">Login</button>
             </form>
             <form method="GET" id="search">
                 <input type="text" name="keyword" />
