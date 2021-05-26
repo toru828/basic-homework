@@ -28,11 +28,11 @@ function showLoginForm () {
 }
 
 document.addEventListener('click', function(event) {
-    const form1 = document.getElementById('passwordIcon');
+    const form1 = document.getElementById('form1');
     const form2 = document.getElementById('login');
     if (!form1) {return;}
     if (!form2) {return;}
-    if(event.target.className !== 'hide' && event.target !== form1) {
+    if(!event.target.closest("#login") && event.target !== form1) {
         form2.style.display = form2.style.display ? '' : 'none';
     }
 });
