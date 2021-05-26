@@ -28,21 +28,17 @@ function showLoginForm () {
 }
 
 document.addEventListener('click', function(event) {
-    const form1 = document.getElementById('form1');
-    const form2 = document.getElementById('login0');
-    const form3 = document.getElementById('login');
-    const form4 = document.getElementById('login1');
-    const form5 = document.getElementById('login2');
-    const form6 = document.getElementById('login3');
-    const form7 = document.getElementById('login4');
-    const form8 = document.getElementById('passwordIcon');
-    if (event.target !== form1 && event.target !== form2 && event.target !== form3 && event.target !== form4 && event.target !== form5 && event.target !== form6 && event.target !== form7 && event.target !== form8) {
-        form3.style.display = form3.style.display ? '' : 'none';
+    const form1 = document.getElementById('passwordIcon');
+    const form2 = document.getElementById('login');
+    if (!form1) {return;}
+    if (!form2) {return;}
+    if(event.target.className !== 'hide' && event.target !== form1) {
+        form2.style.display = form2.style.display ? '' : 'none';
     }
 });
 
 function hidePassword () {
-    const click1 = document.getElementById('login2');
+    const click1 = document.getElementById('login1');
     if (!click1) {return;}
     if (click1.type === 'text') {
         click1.type = 'password';
