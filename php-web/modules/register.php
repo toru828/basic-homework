@@ -1,6 +1,6 @@
 <?php
-
-if ($loginOrLogout === 'Logout') {
+$isLogin = $user['fullname'];
+if ($isLogin) {
     header('Location: index.php');
 }
 // Define variable to check if user is not registered, show register form
