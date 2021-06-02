@@ -64,8 +64,11 @@ $loginOrLogout = $user['fullname'] ? 'Logout' : 'Login';
     <nav>
         <ul>
             <li><a href="./index.php">Home</a></li>
-            <li><a href="./index.php?m=register"><?php if ($loginOrLogout === 'Login') {echo "Register";} ?></a></li>
-            <li><a href="./index.php?m=profile"><?php if ($loginOrLogout === 'Logout') {echo "My Profile";} ?></a></li>
-            <li><a href="./index.php?m=changePassword"><?php if ($loginOrLogout === 'Logout') {echo "Change Password";} ?></a></li>
+            <?php if ($loginOrLogout === 'Login') { ?>
+            <li><a href="./index.php?m=register">Register</a></li>
+            <?php } else { ?>
+            <li><a href="./index.php?m=profile">My Profile</a></li>
+            <li><a href="./index.php?m=changePassword">Change Password</a></li>
+            <?php ;} ?>
         </ul>
     </nav>
