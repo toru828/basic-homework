@@ -4,6 +4,7 @@ if ($loginOrLogout === 'Login') {
 }
 
 $x = 0;
+$message = [];
 
 if (!empty($_POST)) {
     $currentPassword = md5($_POST['currentPassword']);
@@ -11,7 +12,17 @@ if (!empty($_POST)) {
     $confirmNewPassword = md5($_POST['confirmNewPassword']);
     $userId = $user['id'];
 
-    if ($currentPassword === $user['password'] && $newPassword === $confirmNewPassword) {
+    if ($currentPassword !== $user['password']) {
+        array_push($message, "Current password is wrong");
+        $x = 1;
+    } 
+    
+    if ($newPassword !== $confirmNewPassword) {
+        array_push($message, "Confirm new password is wrong");
+        $x = 1;
+    }
+    
+    if ($x === 0) {
         $sql = "UPDATE users
         SET password = '$newPassword'
         WHERE id = '$userId'";
@@ -19,27 +30,20 @@ if (!empty($_POST)) {
         try {
             $result = $mysql->query($sql);
         } catch (Exception $e) {
-            echo "<p>Error: $e->getMessage()</p>";
+            array_push($message, $e->getMessage());
         }
     }
 }
-
-// If there is wrong, make a announcement
-
 
 ?>
 
 <div id="main">
     <div id="main-content">
         <h3>Change Password</h3>
-        <?php if (!empty($_POST)){
-            if (md5($_POST['currentPassword']) !== $user['password']) {
-                echo '<p>Current password is wrong</p>';
-                $x = 1;}
-            if (md5($_POST['newPassword']) !== md5($_POST['confirmNewPassword'])) {
-                echo '<p>Confirm new password is wrong<p>';
-                $x = 1;}
-        ;} ?>
+        <?php foreach($message as $message) {
+            echo "<p>$message</p>";
+        }
+        ?>
         <?php if (empty($_POST) || $x === 1) {?>
             
             <form method="post" class="form-register">
