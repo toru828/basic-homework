@@ -24,34 +24,25 @@ function MaxHeapify (&$data, $heapSize, $index) {
     }
 }
 
-function HeapSort(&$data, $count) {
+function HeapSortKLargest(&$data, $count, $k) {
     $heapSize = $count;
-
-    for ($p = $heapSize / 2 - 1 ; $p >= 0; $p--) {
+    $largest = [];
+    for ($p = floor($heapSize / 2 - 1); $p >= 0; $p--) {
         MaxHeapify($data, $heapSize, $p);
     }
 
-    for ($i = $count - 1; $i > 0; $i--) {
+    for ($i = $count - 1; $i > $count-1-$k; $i--) {
         $temp = $data[$i];
-        $data[$i] = $data[0];
+        array_push($largest, $data[0]);
         $data[0] = $temp;
 
         $heapSize--;
         MaxHeapify($data, $heapSize, 0);
     }
-}
 
-function kLargestNumber ($data, $k) {
-    $y = count($data) - 1;
-    echo "The " . $k . " largest number is ";
-    for ($i = $k; $i > 0; $i--) {
-        echo $data[$y] . " ";
-        $y--;
-    }
+    print_r($largest);
 }
 
 $array = array(20, 43, 65, 88, 11, 33, 56, 74);
-HeapSort($array, 8);
-print_r($array);
-kLargestNumber ($array, 3);
+HeapSortKLargest($array, 8, 3);
 ?>
