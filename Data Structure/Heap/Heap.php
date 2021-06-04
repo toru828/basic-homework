@@ -26,21 +26,21 @@ function MaxHeapify (&$data, $heapSize, $index) {
 
 function HeapSortKLargest(&$data, $count, $k) {
     $heapSize = $count;
-    $largest = [];
+    $biggest = [];
     for ($p = floor($heapSize / 2 - 1); $p >= 0; $p--) {
         MaxHeapify($data, $heapSize, $p);
     }
 
     for ($i = $count - 1; $i > $count-1-$k; $i--) {
         $temp = $data[$i];
-        array_push($largest, $data[0]);
-        $data[0] = $temp;
+        array_push($biggest, $data[0]);
+	$data[0] = $temp;
 
         $heapSize--;
         MaxHeapify($data, $heapSize, 0);
     }
 
-    print_r($largest);
+    print_r($biggest);
 }
 
 $array = array(20, 43, 65, 88, 11, 33, 56, 74);
